@@ -2,7 +2,7 @@
 import { useState } from "react";
 import HeaderSection from "@/components/sections/header";
 import HeroSection from "@/components/sections/hero";
-import FeaturedMealsSection from "@/components/sections/featured-meals";
+import FeaturedMealsSection, { Meal as FeaturedMeal } from "@/components/sections/featured-meals";
 import FooterSection from "@/components/sections/footer";
 import MealModal, { MealForm } from "@/components/modals/meal-modal";
 import { useFoodStore } from "@/store/food";
@@ -10,7 +10,7 @@ import { useNotify } from "@/store/notify";
 import ToastContainer from "@/components/utils/toast";
 
 type Mode = "add" | "edit" | "delete";
-type SimpleMeal = { title: string; price: string; status: "Open Now" | "Closed"; rating: number; id?: string } | null;
+type SimpleMeal = { title: string; price?: string; status: "Open Now" | "Closed"; rating: number; id?: string } | null;
 
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -20,8 +20,8 @@ export default function Home() {
   const { push } = useNotify();
 
   const openAdd = () => { setSelected(null); setMode("add"); setModalOpen(true); };
-  const openEdit = (meal: SimpleMeal) => { setSelected(meal); setMode("edit"); setModalOpen(true); };
-  const openDelete = (meal: SimpleMeal) => { setSelected(meal); setMode("delete"); setModalOpen(true); };
+  const openEdit = (meal: FeaturedMeal) => { setSelected(meal); setMode("edit"); setModalOpen(true); };
+  const openDelete = (meal: FeaturedMeal) => { setSelected(meal); setMode("delete"); setModalOpen(true); };
 
   const initial: Partial<MealForm> = selected
     ? {

@@ -3,7 +3,7 @@ import MealCard from "@/components/cards/meal-card";
 import { useEffect } from "react";
 import { useFoodStore } from "@/store/food";
 
-export type Meal = { id?: string; title: string; price?: string; status?: "Open Now" | "Closed"; rating?: number };
+export type Meal = { id?: string; title: string; price?: string; status: "Open Now" | "Closed"; rating: number };
 
 export default function FeaturedMealsSection({
   onEdit,
