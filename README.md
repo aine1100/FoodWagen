@@ -80,6 +80,7 @@ Deploy on Vercel:
 1. Push to GitHub (main branch)
 2. Import the repo in Vercel
 3. Build & deploy (no env needed)
+4. Live https://food-wagen-plum.vercel.app/
 
 ## Notes
 
